@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Frontend challenge</title>
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://embedsocial.com/cdn/fonts/roboto/stylesheet.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="sidebar">
+			<div class="accordion">
+				<h4 class="accordion-title">
+					Settings panel
+				</h4>
+			</div>
+			<div class="settings">
+				<label class="label">
+					Number of columns
+				</label>
+				<select id="numberOfColumns" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="dynamic" selected>dynamic</option>
+				</select>
+
+				<label class="label">
+					Card background color
+				</label>
+				<input id="cardBackgroundColor" class="form-control" type="text" value="#ffffff" />
+
+				<label class="label">
+					Cards space between
+				</label>
+				<input id="cardSpaceBetween" class="form-control" type="text" value="10px" />
+
+				<label class="label">
+					Choose theme
+				</label>
+				<div class="radio-group">
+					<div class="radio-select">
+						<input id="lightTheme" type="radio" name="theme" value="lightTheme" checked>
+						<label for="lightTheme">Light</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="darkTheme" type="radio" name="theme" value="darkTheme">
+						<label for="darkTheme">Dark</label>
+					</div>
+				</div>
+
+				<label class="label">
+					Filter by source
+				</label>
+				<div class="radio-group">
+					<div class="radio-select">
+						<input id="all" type="radio" name="filterBySource" value="all" checked>
+						<label for="all">All</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="instagram" type="radio" name="filterBySource" value="instagram">
+						<label for="instagram">Instagram</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="facebook" type="radio" name="filterBySource" value="facebook">
+						<label for="facebook">Facebook</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="twitter" type="radio" name="filterBySource" value="twitter">
+						<label for="twitter">Twitter</label>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="preview">
+			<!-- Start creating layout html here -->
+
+			<div class="layout-placeholder">
+				Layout should appear here
+			</div>
+		</div>
+	</div>
+	<script src="index.js"></script>
+</body>
+
+</html>
