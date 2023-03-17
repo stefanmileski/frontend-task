@@ -47,7 +47,7 @@ function createCard(post, postId) {
   const likeIcon = document.createElement('img');
   likeIcon.src = '../icons/heart.svg';
   likeIcon.alt = 'Like';
-  likeIcon.style.height="25px";
+  likeIcon.style.height = "25px";
   if (postLikesMap.get(postId)) {
     likeIcon.classList.add('liked');
   }
@@ -141,3 +141,24 @@ function handleThemeChange(event) {
     }
   }
 }
+
+// const numberOfColumnsField = document.querySelector("#numberOfColumns");
+// numberOfColumnsField.addEventListener('change', updateLayout);
+// function updateLayout() {
+//   if (numberOfColumnsField.value !== "Dynamic") {
+//     const cards = document.getElementsByClassName("card");
+//     const columns = parseInt(numberOfColumnsField.value);
+//     const flexBasis = "`calc(${100 / columns}%) - 64px`";
+//     for (let i = 0; i < cards.length; i++) {
+//       cards[i].style.flexBasis = flexBasis;
+//     }
+//   }
+// }
+
+const cardSpaceBetweenField = document.querySelector("#cardSpaceBetween");
+cardSpaceBetweenField.addEventListener('input', (event) => {
+  const cards = document.getElementsByClassName("card");
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].style.margin = `${parseInt(event.target.value)/2}px`;
+  }
+})
