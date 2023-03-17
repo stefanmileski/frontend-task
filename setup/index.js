@@ -158,7 +158,14 @@ function handleThemeChange(event) {
 const cardSpaceBetweenField = document.querySelector("#cardSpaceBetween");
 cardSpaceBetweenField.addEventListener('input', (event) => {
   const cards = document.getElementsByClassName("card");
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].style.margin = `${parseInt(event.target.value)/2}px`;
+  let value = event.target.value;
+  if (value === "") {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.margin = "10px";
+    }
+  } else {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.margin = `${parseInt(value) / 2}px`;
+    }
   }
 })
