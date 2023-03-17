@@ -19,8 +19,8 @@ body {
     background: #f9fafd;
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
+    flex-direction: column;
     position: relative;
 }
 
@@ -85,8 +85,6 @@ input[type="radio"] {
 .layout {
     display: flex;
     flex-wrap: wrap;
-
-    top: 30px;
     margin-bottom: 30px;
 }
 
@@ -188,6 +186,10 @@ input[type="radio"] {
 }
 
 #load-more-button {
-    position: absolute;
-    bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #0275d8;
+    border: 0;
+    margin-right: 35px;
 }

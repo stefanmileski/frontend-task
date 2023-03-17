@@ -12,7 +12,7 @@ const preview = document.querySelector('.preview');
 const layout = document.querySelector('.layout');
 const loadMoreBtn = document.createElement('button');
 loadMoreBtn.textContent = 'LOAD MORE'
-loadMoreBtn.id="load-more-button";
+loadMoreBtn.id = "load-more-button";
 let index = 4;
 let postLikesMap = new Map();
 
@@ -34,10 +34,13 @@ function createCard(post, postId) {
   const date = document.createElement('p');
   date.textContent = formattedDate;
   date.classList.add("date-paragraph");
+  const linkTag = document.createElement('a');
+  linkTag.href=post.source_link;
   const sourceTypeImg = document.createElement('img');
   sourceTypeImg.src = sourceTypeIconPath;
   sourceTypeImg.alt = 'Source';
   sourceTypeImg.classList.add("source-image");
+  linkTag.appendChild(sourceTypeImg);
   const postImg = document.createElement('img');
   postImg.src = post.image;
   postImg.alt = 'Content'
@@ -68,7 +71,7 @@ function createCard(post, postId) {
   cardElement.appendChild(profileImg);
   cardElement.appendChild(name);
   cardElement.appendChild(date);
-  cardElement.appendChild(sourceTypeImg);
+  cardElement.appendChild(linkTag);
   cardElement.appendChild(postImg);
   cardElement.appendChild(caption);
   cardElement.appendChild(likeIcon);
@@ -95,8 +98,8 @@ function createButton() {
   loadMoreBtn.addEventListener('click', () => {
     for (let i = index; i < index + 4 && i < postsArray.length; i++) {
       layout.appendChild(createCard(postsArray[i], i));
-      index++;
     }
+    index+=4;
     if (index === postsArray.length) {
       loadMoreBtn.style.display = 'none';
     }
