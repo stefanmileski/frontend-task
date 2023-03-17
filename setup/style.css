@@ -21,11 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-}
-
-.layout-placeholder {
-    color: #464b5b;
-    font-size: 18px;
+    position: relative;
 }
 
 .accordion {
@@ -89,6 +85,9 @@ input[type="radio"] {
 .layout {
     display: flex;
     flex-wrap: wrap;
+
+    top: 30px;
+    margin-bottom: 30px;
 }
 
 .card {
@@ -141,7 +140,7 @@ input[type="radio"] {
 }
 
 .card .like-icon.liked {
-    filter: brightness(0) hue-rotate(180deg);
+    fill: #FF0000;
 }
 
 .card .likes-count {
@@ -186,4 +185,9 @@ input[type="radio"] {
 
 .card .caption {
     margin-bottom: 30px;
+}
+
+#load-more-button {
+    position: absolute;
+    bottom: 20px;
 }

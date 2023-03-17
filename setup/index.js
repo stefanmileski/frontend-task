@@ -12,6 +12,7 @@ const preview = document.querySelector('.preview');
 const layout = document.querySelector('.layout');
 const loadMoreBtn = document.createElement('button');
 loadMoreBtn.textContent = 'LOAD MORE'
+loadMoreBtn.id="load-more-button";
 let index = 4;
 let postLikesMap = new Map();
 
@@ -142,19 +143,6 @@ function handleThemeChange(event) {
   }
 }
 
-// const numberOfColumnsField = document.querySelector("#numberOfColumns");
-// numberOfColumnsField.addEventListener('change', updateLayout);
-// function updateLayout() {
-//   if (numberOfColumnsField.value !== "Dynamic") {
-//     const cards = document.getElementsByClassName("card");
-//     const columns = parseInt(numberOfColumnsField.value);
-//     const flexBasis = "`calc(${100 / columns}%) - 64px`";
-//     for (let i = 0; i < cards.length; i++) {
-//       cards[i].style.flexBasis = flexBasis;
-//     }
-//   }
-// }
-
 const cardSpaceBetweenField = document.querySelector("#cardSpaceBetween");
 cardSpaceBetweenField.addEventListener('input', (event) => {
   const cards = document.getElementsByClassName("card");
@@ -169,3 +157,16 @@ cardSpaceBetweenField.addEventListener('input', (event) => {
     }
   }
 })
+
+// const numberOfColumnsField = document.querySelector("#numberOfColumns");
+// numberOfColumnsField.addEventListener('change', updateLayout);
+// function updateLayout() {
+//   if (numberOfColumnsField.value !== "Dynamic") {
+//     const cards = document.getElementsByClassName("card");
+//     const columns = parseInt(numberOfColumnsField.value);
+//     const flexBasis = "`calc(${100 / columns}%) - 64px`";
+//     for (let i = 0; i < cards.length; i++) {
+//       cards[i].style.flexBasis = flexBasis;
+//     }
+//   }
+// }
