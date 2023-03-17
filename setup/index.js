@@ -35,7 +35,7 @@ function createCard(post, postId) {
   date.textContent = formattedDate;
   date.classList.add("date-paragraph");
   const linkTag = document.createElement('a');
-  linkTag.href=post.source_link;
+  linkTag.href = post.source_link;
   const sourceTypeImg = document.createElement('img');
   sourceTypeImg.src = sourceTypeIconPath;
   sourceTypeImg.alt = 'Source';
@@ -53,7 +53,7 @@ function createCard(post, postId) {
   likeIcon.alt = 'Like';
   likeIcon.style.height = "25px";
   if (postLikesMap.get(postId)) {
-    likeIcon.classList.add('liked');
+    linkTag.classList.add('liked');
   }
   likeIcon.addEventListener('click', () => {
     likeIcon.classList.toggle('liked');
@@ -99,10 +99,20 @@ function createButton() {
     for (let i = index; i < index + 4 && i < postsArray.length; i++) {
       layout.appendChild(createCard(postsArray[i], i));
     }
-    index+=4;
+    index += 4;
     if (index === postsArray.length) {
       loadMoreBtn.style.display = 'none';
     }
+    const sourceRadioButtons = document.getElementsByName('filterBySource');
+    let selectedOptionValue;
+
+    for (let i = 0; i < sourceRadioButtons.length; i++) {
+      if (sourceRadioButtons[i].checked) {
+        selectedOptionValue = sourceRadioButtons[i].value;
+        break;
+      }
+    }
+    handleSourceChange(selectedOptionValue);
   });
   loadMoreBtn.classList.add("load-more-button");
   preview.appendChild(loadMoreBtn);
@@ -161,15 +171,51 @@ cardSpaceBetweenField.addEventListener('input', (event) => {
   }
 })
 
-// const numberOfColumnsField = document.querySelector("#numberOfColumns");
-// numberOfColumnsField.addEventListener('change', updateLayout);
-// function updateLayout() {
-//   if (numberOfColumnsField.value !== "Dynamic") {
-//     const cards = document.getElementsByClassName("card");
-//     const columns = parseInt(numberOfColumnsField.value);
-//     const flexBasis = "`calc(${100 / columns}%) - 64px`";
-//     for (let i = 0; i < cards.length; i++) {
-//       cards[i].style.flexBasis = flexBasis;
-//     }
-//   }
-// }
+const numberOfColumnsField = document.querySelector("#numberOfColumns");
+numberOfColumnsField.addEventListener('change', updateLayout);
+function updateLayout() {
+  let columns = 2;
+  if (numberOfColumnsField.value !== "dynamic") {
+    columns = parseInt(numberOfColumnsField.value);
+  }
+  const cards = document.getElementsByClassName("card");
+  const flexBasis = `calc(${100 / columns}% - 64px)`;
+  console.log(flexBasis)
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].style.flexBasis = flexBasis;
+  }
+}
+
+const all = document.querySelector("#all");
+const facebook = document.querySelector('#facebook');
+const twitter = document.querySelector('#twitter');
+const instagram = document.querySelector('#instagram');
+
+all.addEventListener('change', handleSourceChangeFromEvent);
+facebook.addEventListener('change', handleSourceChangeFromEvent);
+twitter.addEventListener('change', handleSourceChangeFromEvent);
+instagram.addEventListener('change', handleSourceChangeFromEvent);
+
+function handleSourceChangeFromEvent(event) {
+  const source = event.target.value;
+  handleSourceChange(source);
+}
+
+function handleSourceChange(sourceString) {
+  const cards = document.getElementsByClassName("card");
+  if (sourceString !== "all") {
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].querySelector('a>img').src.includes(sourceString)) {
+        cards[i].style.display = "flex";
+      }
+      else {
+        cards[i].style.display = "none";
+      }
+    }
+  }
+  else {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.display = "flex"
+    }
+  }
+}
