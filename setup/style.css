@@ -141,7 +141,7 @@ input[type="radio"] {
 }
 
 .card .like-icon.liked {
-    fill: red;
+    filter: brightness(0) hue-rotate(180deg);
 }
 
 .card .likes-count {
@@ -165,21 +165,27 @@ input[type="radio"] {
     position: absolute;
     right: 20px;
     top: 30px;
+    height: 35px;
 }
 
 .card .likes-count {
     position: absolute;
-    left: 65px;
+    left: 45px;
     bottom: 8px;
 }
 
-.preview {
-    padding-top: 300px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
+
 
 .dark {
     background-color: #000000;
     color: #ffffff;
+}
+
+.card .like-icon {
+    position: absolute;
+    bottom: 13px;
+}
+
+.card .caption {
+    margin-bottom: 30px;
 }

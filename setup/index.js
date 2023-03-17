@@ -19,7 +19,7 @@ function createCard(post, postId) {
   var dateString = post.date;
   var tempDate = new Date(dateString);
   var formattedDate = tempDate.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' });
-  var sourceTypeIconPath = (post.source_type === 'facebook') ? 'icons/facebook.svg' : 'icons\instagram-logo.svg';
+  var sourceTypeIconPath = (post.source_type === 'facebook') ? '../icons/facebook.svg' : '../icons/instagram-logo.svg';
   const cardElement = document.createElement('div');
 
   cardElement.classList.add('card');
@@ -43,9 +43,11 @@ function createCard(post, postId) {
   postImg.classList.add("post-image");
   const caption = document.createElement('p');
   caption.textContent = post.caption;
+  caption.classList.add("caption");
   const likeIcon = document.createElement('img');
-  likeIcon.src = 'icons/heart.svg';
+  likeIcon.src = '../icons/heart.svg';
   likeIcon.alt = 'Like';
+  likeIcon.style.height="25px";
   if (postLikesMap.get(postId)) {
     likeIcon.classList.add('liked');
   }
@@ -58,6 +60,7 @@ function createCard(post, postId) {
       likesCount.textContent = parseInt(post.likes) + 1;
     }
   });
+  likeIcon.classList.add("like-icon");
   const likesCount = document.createElement('p');
   likesCount.textContent = post.likes;
   likesCount.classList.add('likes-count')
