@@ -115,3 +115,26 @@ backgroundColorField.addEventListener('input', (event) => {
     cards[i].style.backgroundColor = newColor;
   }
 })
+
+const lightThemeRadio = document.querySelector('#lightTheme');
+const darkThemeRadio = document.querySelector('#darkTheme');
+
+lightThemeRadio.addEventListener('change', handleThemeChange);
+darkThemeRadio.addEventListener('change', handleThemeChange);
+
+function handleThemeChange(event) {
+  const theme = event.target.value;
+  const cards = document.getElementsByClassName("card");
+  if (theme === "lightTheme") {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.backgroundColor = "#ffffff";
+      cards[i].style.color = "#000000";
+    }
+  }
+  else if (theme === "darkTheme") {
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].style.backgroundColor = "#000000";
+      cards[i].style.color = "#ffffff";
+    }
+  }
+}
