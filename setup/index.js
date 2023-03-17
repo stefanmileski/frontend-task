@@ -1,4 +1,4 @@
-var postsArray = []
+let postsArray = []
 fetch('../data.json')
   .then(response => response.json())
   .then(data => {
@@ -13,13 +13,13 @@ const layout = document.querySelector('.layout');
 const loadMoreBtn = document.createElement('button');
 loadMoreBtn.textContent = 'LOAD MORE'
 let index = 4;
-var postLikesMap = new Map();
+let postLikesMap = new Map();
 
 function createCard(post, postId) {
-  var dateString = post.date;
-  var tempDate = new Date(dateString);
-  var formattedDate = tempDate.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' });
-  var sourceTypeIconPath = (post.source_type === 'facebook') ? '../icons/facebook.svg' : '../icons/instagram-logo.svg';
+  let dateString = post.date;
+  let tempDate = new Date(dateString);
+  let formattedDate = tempDate.toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' });
+  let sourceTypeIconPath = (post.source_type === 'facebook') ? '../icons/facebook.svg' : '../icons/instagram-logo.svg';
   const cardElement = document.createElement('div');
 
   cardElement.classList.add('card');
@@ -108,7 +108,7 @@ const backgroundColorField = document.querySelector("#cardBackgroundColor");
 backgroundColorField.addEventListener('input', (event) => {
   const cards = document.getElementsByClassName("card");
   for (let i = 0; i < cards.length; i++) {
-    var newColor = event.target.value;
+    let newColor = event.target.value;
     if (newColor[0] !== "#") {
       newColor = "#" + newColor;
     }
