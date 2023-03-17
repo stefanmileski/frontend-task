@@ -172,3 +172,9 @@ input[type="radio"] {
     left: 65px;
     bottom: 8px;
 }
+
+.preview {
+    padding-top: 1400px;
+    padding-left: 50px;
+    padding-right: 50px;
+}

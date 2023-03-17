@@ -101,7 +101,17 @@ function createButton() {
   preview.appendChild(loadMoreBtn);
 }
 
-for (let i = 0; i < 4 && i < postsArray.length; i++) {
-  layout.appendChild(createCard(postsArray[i], i));
-  index++;
-}
+const backgroundColorField = document.querySelector("#cardBackgroundColor");
+backgroundColorField.addEventListener('input', (event) => {
+  const cards = document.getElementsByClassName("card");
+  for (let i = 0; i < cards.length; i++) {
+    var newColor = event.target.value;
+    if (newColor[0] !== "#") {
+      newColor = "#" + newColor;
+    }
+    if (newColor === "#") {
+      newColor = "";
+    }
+    cards[i].style.backgroundColor = newColor;
+  }
+})
